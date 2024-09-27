@@ -1,12 +1,17 @@
 import React from 'react'
 import { Button,Container,Form,Nav,Navbar,NavDropdown } from 'react-bootstrap'
+import {LinkContainer} from 'react-router-bootstrap'
+
 
 function Header() {
   return (
     <div>
         <Navbar expand="lg" variant='dark' className="bg-dark">
         <Container fluid>
-          <Navbar.Brand href="#">2am_9086</Navbar.Brand>
+          <LinkContainer to='/'>
+            <Navbar.Brand >2am_9086</Navbar.Brand>
+          </LinkContainer>
+
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -14,9 +19,16 @@ function Header() {
               style={{ maxHeight: '100px' }}
               navbarScroll
             >
-              <Nav.Link href="/"><i className='fas fa-home'></i> Home</Nav.Link>
-              <Nav.Link href="/"><i className='fas fa-shopping-cart'></i> Cart</Nav.Link>
-              <Nav.Link href="/"><i className='fas fa-user'></i> Login</Nav.Link>
+              <LinkContainer to='/'>
+                <Nav.Link ><i className='fas fa-home'></i> Home</Nav.Link>
+              </LinkContainer>
+              <LinkContainer to='/Cart'>
+                <Nav.Link ><i className='fas fa-shopping-cart'></i> Cart</Nav.Link>
+              </LinkContainer>
+
+              <LinkContainer to='/login'>
+                <Nav.Link ><i className='fas fa-user'></i> Login</Nav.Link>
+              </LinkContainer>
             </Nav>
             <Form className="d-flex">
               <Form.Control
