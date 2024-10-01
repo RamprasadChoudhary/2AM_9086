@@ -27,9 +27,8 @@ function ProductScreen() {
 
     
   useEffect(() =>{
-    console.log(listProductDetails(productId))
     dispatch(listProductDetails(productId));
-  },[dispatch,productId])
+  },[dispatch,params])
 //     const product = products.find((p) => p._id == productId);
   return (
     <div>
@@ -91,7 +90,7 @@ function ProductScreen() {
                         {product.countInStock>0 && (
                             <ListGroup.Item>
                                 <Row>
-                                    <Col>Qty</Col>
+                                    <Col>Qty : </Col>
                                     <Col xs="auto" className='my-1'>
                                         <Form.Control
                                         as="select"
