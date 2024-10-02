@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import { Link,useParams  } from 'react-router-dom'
+import { Link,useParams , useNavigate  } from 'react-router-dom'
 import {Row,Col,Image,ListGroup,Button,Card,Form} from "react-bootstrap"
 //import products from '../../products'
 import Rating from '../Rating';
@@ -29,6 +29,12 @@ function ProductScreen() {
   useEffect(() =>{
     dispatch(listProductDetails(productId));
   },[dispatch,params])
+
+  const navigate = useNavigate(); 
+
+  const addToCartHandler = () => {
+    navigate(`/cart/${productId}?qty=${qty}`); // Replaced history.push with navigate
+  };
 //     const product = products.find((p) => p._id == productId);
   return (
     <div>
@@ -110,8 +116,11 @@ function ProductScreen() {
                             </ListGroup.Item>
                         )}
                         <ListGroup.Item>
-                            <Button className='btn-block' disabled={product.countInStock===0}
-                             type='button'>Add to Cart</Button>
+                            <Button className='btn-block' 
+                            disabled={product.countInStock===0}
+                             type='button'
+                             onClick={addToCartHandler}
+                             >Add to Cart</Button>
                         </ListGroup.Item>
                     </ListGroup>
 

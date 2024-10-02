@@ -5,6 +5,7 @@ import { Container } from 'react-bootstrap';
 import HomeScreen from './components/screens/HomeScreen';
 import {BrowserRouter as Router , Route, Routes} from 'react-router-dom'
 import ProductScreen from './components/screens/ProductScreen';
+import CartScreen from './components/screens/CartScreen';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path='/' Component={HomeScreen} exact />
           <Route path='/product/:id' Component={ProductScreen} exact /> 
+          <Route path='/cart/:id?' element={<CartScreen />} exact />
         </Routes>
         
       </Container>
