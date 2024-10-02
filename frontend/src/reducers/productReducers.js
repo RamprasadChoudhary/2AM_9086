@@ -24,7 +24,7 @@ export const productListReducers = (state={products: [], loading: false, error: 
 }
 
 export const productDetailsReducers = (state={product:{ reviews: [] }, loading: false, error: null },action) => {
-    console.log("Reducer called with action:", action);
+    //console.log("Reducer called with action:", action);
     switch(action.type){
         case PRODUCT_DETAILS_REQUEST:
             return {loading:true,...state}
